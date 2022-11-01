@@ -1,4 +1,4 @@
-﻿namespace ShortestPath;
+﻿namespace AllPaths;
 
 public interface IImmutablePath
 {

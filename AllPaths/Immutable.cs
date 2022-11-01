@@ -1,13 +1,13 @@
-﻿namespace ShortestPath;
+﻿namespace AllPaths;
 
 public static class Immutable
 {
-    public static List<IImmutablePath> Solve(Map maze, Room start, Room goal)
+    public static IEnumerable<IImmutablePath> Solve(Map maze, Room start, Room goal)
     {
         return Solve(maze, goal, IImmutablePath.Empty(), start);
     }
 
-    private static List<IImmutablePath> Solve(Map maze, Room goal, IImmutablePath path, Room room)
+    private static IEnumerable<IImmutablePath> Solve(Map maze, Room goal, IImmutablePath path, Room room)
     {
         if (path.Contains(room))
         {
@@ -22,8 +22,7 @@ public static class Immutable
         {
             return room.Neighbours()
                 .Where(maze.Contains)
-                .SelectMany(nextRoom => Solve(maze, goal, nextPath, nextRoom))
-                .ToList();
+                .SelectMany(nextRoom => Solve(maze, goal, nextPath, nextRoom));
         }
     }
 

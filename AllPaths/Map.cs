@@ -1,4 +1,4 @@
-﻿namespace ShortestPath;
+﻿namespace AllPaths;
 
 public class Map : HashSet<Room>
 {
@@ -9,7 +9,7 @@ public class Map : HashSet<Room>
         {
             for (var y = 0; y < stringMap[x].Length; y++)
             {
-                if (stringMap[x][y] == ' ')
+                if (stringMap[x][y] != '#')
                 {
                     map.Add(new Room(x, y));
                 }

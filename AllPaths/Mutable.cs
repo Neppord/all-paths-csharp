@@ -1,14 +1,14 @@
-﻿namespace ShortestPath;
+﻿namespace AllPaths;
 
 public static class Mutable
 {
-    public static List<MutablePath> Solve(Map maze, Room start, Room goal)
+    public static IEnumerable<MutablePath> Solve(Map maze, Room start, Room goal)
     {
         MutablePath path = new MutablePath();
         return Solve(maze, goal, path, start);
     }
 
-    private static List<MutablePath> Solve(Map maze, Room goal, MutablePath path, Room room)
+    private static IEnumerable<MutablePath> Solve(Map maze, Room goal, MutablePath path, Room room)
     {
         if (path.Contains(room))
         {
@@ -23,8 +23,7 @@ public static class Mutable
         {
             return room.Neighbours()
                 .Where(maze.Contains)
-                .SelectMany(nextRoom => Solve(maze, goal, nextPath, nextRoom))
-                .ToList();
+                .SelectMany(nextRoom => Solve(maze, goal, nextPath, nextRoom));
         }
     }
 }

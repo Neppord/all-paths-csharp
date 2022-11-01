@@ -1,4 +1,4 @@
-﻿namespace ShortestPath;
+﻿namespace AllPaths;
 
 public class Room : Tuple<int, int>
 {
