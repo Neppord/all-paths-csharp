@@ -2,6 +2,11 @@
 
 public static class Immutable
 {
+    public static IEnumerable<IImmutablePath> Solve(Map maze)
+    {
+        return Solve(maze, maze.Start, maze.Goal);
+    }
+    
     public static IEnumerable<IImmutablePath> Solve(Map maze, Room start, Room goal)
     {
         return Solve(maze, goal, IImmutablePath.Empty(), start);

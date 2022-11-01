@@ -1,36 +1,5 @@
 ﻿using AllPaths;
 using static AllPaths.Immutable;
-var easyMap = new List<string>
-{
-    " #    ##    #### #         #       # ",
-    " #  # ##### #  # ## # ## # # ## ## # ",
-    " #  # ##  # #  # #  # #  # #  # #  # ",
-    " #### ## ## # ## #### # ## #### # ## ",
-    "      ## #  #      ## #### #         ",
-    " #######  # ## # #         #       ##",
-    " ## #  ## # ## # ## # ## # # ## ## # ",
-    " #  #  #  # #  # #  # #  # #  # #  # ",
-    " # ##  # ## # ## # ## #### #### # ## ",
-    "                 #    #              "
-            
-}; // goal 1, 36
-var hardMap = new List<string>
-{
-    " #    ##    ####      #         #       # ",
-    " #  # ##### #  # ## # ## # ## # # ## ## # ",
-    " #  # ##  # #  # #  # #  # #  # #  # #  # ",
-    " #### ## ## # ## # ## #### # ## #### # ## ",
-    "      ## #  #    ####   ## #### #         ",
-    " #######  # ## #      #         #       ##",
-    " ## #  ## # ## # ## # ## # ## # # ## ## # ",
-    " #  #  #  # #  # #  # #  # #  # #  # #  # ",
-    " # ##  # ## # ## # ## # ## #### #### # ## ",
-    "                 #    #    #              "
-            
-}; // goal 1, 41
-var map = Map.Parse( easyMap );
-var paths = Solve(map, new Room(2, 0), new Room(1, 36)).ToList();
-foreach (var path in paths)
-{
-    Console.WriteLine(path);
-}
+
+var paths = Solve(Map.HardMap).ToList();
+Console.WriteLine(paths.Count);

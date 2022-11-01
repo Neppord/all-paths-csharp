@@ -2,6 +2,12 @@
 
 public static class Mutable
 {
+    
+    public static IEnumerable<MutablePath> Solve(Map maze)
+    {
+        return Solve(maze, maze.Start, maze.Goal);
+    }
+    
     public static IEnumerable<MutablePath> Solve(Map maze, Room start, Room goal)
     {
         MutablePath path = new MutablePath();
